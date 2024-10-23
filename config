@@ -1,0 +1,13 @@
+
+[default]
+region = us-west-2
+output = json
+ 
+[profile proxy-dev-developer]
+sso_start_url = https://d-9c67018f89.awsapps.com/start
+sso_account_id = 589332443380
+sso_role_name = NPA-Developer
+sso_region = eu-west-2
+region = eu-west-2
+output = json
+ 

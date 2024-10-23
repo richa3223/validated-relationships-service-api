@@ -1,0 +1,32 @@
+<TargetEndpoint name="RelatedPerson">
+    <Description/>
+    <FaultRules/>
+    <Flows/>
+    <PostFlow name="PostFlow">
+        <Response>
+            <Step>
+                <Name>SetMimeType</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request/>
+          <Step>
+            <Name>FlowCallout.ApplyRateLimiting</Name>
+          </Step>
+        <Response>
+          <Step>
+            <Name>AssignMessage.AddCors</Name>
+          </Step>
+        </Response>
+    </PreFlow>
+    <DefaultFaultRule name="DefaultFaultRule">
+      <Step>
+        <Name>RaiseFault.DefaultError</Name>
+      </Step>
+      <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <HTTPTargetConnection>
+      {{ HOSTED_TARGET_CONNECTION }}
+    </HTTPTargetConnection>
+</TargetEndpoint>
